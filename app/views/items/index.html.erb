@@ -23,10 +23,12 @@
         <td><%= item.description %></td>
         <td><%= number_to_currency(item.starting_bid) %></td>
         <td><%= number_to_currency(item.highest_bid_amount) %></td>
-        <td><%= link_to 'Bid!', item, class: "btn btn-primary btn-sm" %></td>
+        
+        <td><%= link_to 'Bid!', item_path(item), remote:true, class: "btn btn-primary btn-sm" %></td>
         <td><%= link_to 'Edit', edit_item_path(item), class: "btn btn-secondary btn-sm" %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
+        <td><%= link_to 'Destroy', item_path(item), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
       </tr>
+      <td><div id='bid--new'></div></td>
     <% end %>
   </tbody>
 </table>

@@ -9,8 +9,8 @@ For this project, you need to modify the bidding page for a smoother user experi
 Refactor this application to use AJAX so that both of those behaviors work without a page reload.
 
 - The place bid form should be remote, and should:
-  - update the highest bid
-  - update the next bid field to be $10 higher than the highest bid
+- update the highest bid
+- update the next bid field to be $10 higher than the highest bid
 - Every 15 seconds, the highest bid and the next bid should update if someone else places a new bid.
 
 The application should be styled using Bootstrap. Some minimal styling has been applied, but it definitely needs more work. You can change any and all styles that are already in place.

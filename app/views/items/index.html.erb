@@ -48,7 +48,7 @@
           if (item.bids.length) {
             var last = item.bids[item.bids.length - 1];
             console.log(last);
-            $('#'+item.id)[0].innerHTML = '$' + last.amount;
+            $('#'+item.id)[0].innerHTML = numberToCurrency(last.amount);
           }
         })
       })

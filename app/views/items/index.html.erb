@@ -3,35 +3,28 @@
 <% end %>
 <h1>Listing Items</h1>
 <div id='bid--new'></div>
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Artist</th>
-      <th>Description</th>
-      <th>Starting Bid</th>
-      <th>Highest Bid</th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class='container'>
+  <div class="card-columns">
     <% @items.each do |item| %>
-      <tr>
-        <td><%= image_tag item.image_url, class: "thumbnail img-thumbnail" %></td>
-        <td><%= item.title %></td>
-        <td><%= item.artist %></td>
-        <td><%= item.description %></td>
-        <td><%= number_to_currency(item.starting_bid) %></td>
-        <td id='<%= item.id %>'><%= number_to_currency(item.highest_bid_amount) %></td>
+      <div class="card m-3 shadow" style="width: 270px; display: inline-block;">
+        <%= image_tag item.image_url, class: 'card-img-top w-100' %>
+        <div class='card-body'>
+          <h5 class="card-title"><%= item.title %></div>
+          <h6 class="card-subtitle mb-2 text-muted px-2">Artist: <%= item.artist %></h6>
+          <p class="card-text px-2"><%= item.description %></p>
+          <p class="card-text px-2">Starting bid: <%= number_to_currency(item.starting_bid) %></p>
+          <p class="card-text px-2">Highest Bid:</p>
+          <p class="card-text px-2" id='<%= item.id %>'><%= number_to_currency(item.highest_bid_amount) %></p>
         
-        <td><%= link_to 'Bid!', item, remote:true, class: "btn btn-primary btn-sm" %></td>
-        <td><%= link_to 'Edit', edit_item_path(item), class: "btn btn-secondary btn-sm" %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
-      </tr>
+          <%= link_to 'Bid!', item, remote:true, class: "btn btn-primary btn-sm" %>
+          <%= link_to 'Edit', edit_item_path(item), class: "btn btn-secondary btn-sm" %>
+          <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
+
 
 <br>
 

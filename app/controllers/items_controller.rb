@@ -3,6 +3,10 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @items.to_json(include: :bids ) }
+    end
   end
 
   def show
@@ -38,6 +42,8 @@ class ItemsController < ApplicationController
     @item.destroy
     redirect_to items_url, notice: 'Item was successfully destroyed.'
   end
+
+
 
   private
     def set_item

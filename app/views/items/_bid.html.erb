@@ -1,0 +1,9 @@
+<div>
+  
+  <%= form_with(model: @bid) do |f| %>
+    <h3>Your Bid</h3>
+    <%= f.hidden_field :item_id %>
+    <%= f.number_field :amount %>
+    <%= f.submit "Submit Bid", class: "btn btn-primary btn-small" %>
+  <% end %>
+</div>
